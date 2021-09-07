@@ -1,0 +1,36 @@
+{% extends 'base2.html' %}
+{% block title %}Dashboard{% endblock title %}
+{% block body %}
+{% include 'SearchBoxAdmin.html' %}
+<div class="row">
+<h1 class="alert alert-primary"> DashBoard</h1>
+<div class="col-md-6">
+<div class="container" style="border:1px dotted black;">
+<h3 class="text-center">
+TOTAL USERS
+</h3>
+<h1 class="text-center text-success">{{total_users}}</h1>
+</div>
+</div>
+
+<div class="col-md-6">
+<div class="container" style="border:1px dotted black;">
+<h3 class="text-center">
+TOTAL NOTES
+</h3>
+<h1 class="text-center text-success">{{total_notes}}</h1>
+</div>
+</div>
+
+<div class="col-md-6 my-2">
+<div class="container" style="border:1px dotted black;">
+<h3 class="text-center">
+TOTAL BLOGS
+</h3>
+<h1 class="text-center text-success">{{total_blogs}}</h1>
+</div>
+</div>
+
+
+</div>
+{% endblock body %}

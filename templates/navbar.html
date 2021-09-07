@@ -1,0 +1,52 @@
+      {% include 'modal.html' %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand mx-4" href="/"><img src="/static/img/logo2.png" height="80px" width="auto"></a>
+    <div class="text-center">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 p-8">
+        <li class="nav-item">
+          <a class="nav-link mx-4" aria-current="page" href="/notes"><i class="fa fa-sticky-note"></i> Notes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mx-4" href="/blogs"><i class="fas fa-blog"></i>
+Blogs</a>
+<li class="nav-item">
+          <a class="nav-link mx-4" href="/"><i class="fas fa-igloo"></i> Home</a>
+        </li>
+        {% if user.is_authenticated %}
+        {% if user.is_superuser %}
+         <li class="nav-item">
+          <a class="nav-link mx-4" href="/dashboard"><i class="fas fa-sign-in-alt"></i>
+Admin</a></li>{% endif %}
+
+<li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Welcome {{request.user}}</a>
+            <ul class="dropdown-menu">
+            <li class="nav-item"><a class="dropdown-item" href="/logout">Logout</a></li>
+            </ul>
+            </li>
+{% else %}
+  <li class="nav-item">
+          <span style="cursor: pointer;" class="nav-link mx-4" data-toggle="modal" data-target="#loginModal"><i class="fas fa-sign-in-alt"></i>
+Login</span></li>
+<li class="nav-item">
+          <span style="cursor: pointer;" class="nav-link mx-4" data-toggle="modal" data-target="#signupModal"><i class="fas fa-user-plus"></i>
+Signup</span>
+        </li>
+        {% endif %}
+      </ul>
+      </div>
+      </div>
+      <form class="d-flex" method="GET" action="searchBlog">
+        <input class="form-control me-2" type="search" placeholder="Search blogs..." aria-label="Search" name="queryBlog" id="queryBlog" value={{queryBlog}}>
+        <button class="btn btn-outline-success" type="submit"><i class="fab fa-searchengin"></i></button>
+      </form>
+  </div>
+  </div>
+</nav>
+</div>
+

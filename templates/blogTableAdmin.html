@@ -1,0 +1,41 @@
+{% extends 'base2.html' %}
+{% block title %}Blog Table Admin{% endblock title %}
+{% block body %}
+<div class="row">
+<div class="col-md-12">
+ <div style="overflow-x:auto;">
+ <table class="table table-hover">
+        <h4 class="alert alert-secondary">BLOG TABLE</h4>
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Blog Title</th>
+                <th scope="col">Blog Date</th>
+                <th scope="col">Blog Image</th>
+                <th scope="col">Blog Description</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            {% for b in blogs %}
+            <tbody>
+              <tr>
+                <th scope="row">{{b.blogId}}</td>
+                <td>{{b.blogTitle}}</td>
+                <td>{{b.blogDate}}</td>
+                <td>{{b.blogImage}}</td>
+                <td>{{b.blogSummary }}</td>
+                <td>
+                <a href="{% url 'updateBlog' b.blogId %}" class="btn btn-warning btn-sm">Edit</a>
+                <form action="{% url 'deleteBlog' b.blogId %}" method="POST" class="d-inline">
+                  {% csrf_token %}
+                  <input type="submit" name="deleteBlog" class="btn btn-danger btn-sm" value="Delete" />
+                </form>
+
+                </td>
+              </tr>
+            </tbody>
+            {% endfor %}
+          </table>
+          </div>
+</div></div>
+{% endblock body %}

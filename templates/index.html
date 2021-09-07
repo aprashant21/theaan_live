@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block title %}THEAAN - HOME{% endblock title %}
+{% block body %}
+
+<main class="text-light bg-dark">
+<div class="container">
+<div class="row">
+<div class="col-md-12" style="text-align:center;">
+<img src="static/img/ma.jpg" class="my-2" style="height:150px;weight:100%;"> 
+</div>
+<div class="col-md-12">
+    <h1><marquee>THE ENTIRE CODING,BLOGS, DESIGNING, ENTERTAINMENT, MUSIC , LEARNING SKILLS IN ONE WEBSITE</marquee></h1>
+    <p class="lead">Bored on using facebook and Youtube everytime ? Today learn something new and read new blogs using my websites.</p>
+    <div class="d-flex justify-content-center">
+    <p class="lead">
+      <a href="/blogs" class="btn btn-lg btn-secondary fw-bold border-white bg-dark text-light">More Blogs</a>
+    </p>
+    <p class="lead mx-2">
+      <a href="/notes" class="btn btn-lg btn-secondary fw-bold border-white bg-dark text-light">More Notes</a>
+    </p>
+    </div>
+    </div>
+    </div>
+    </div>
+  </main>
+
+{% comment %} This is my introduction container {% endcomment %}
+        <div class="container my-4">
+        <div class="col-md-12">
+            <h1 class="text-center mb-4">WHO I AM</h1>
+            <div class="row">
+            <div class="col-md-6"><div class="container"><img src="static/img/1.jpg" style="height:auto;width:100%;"/></div></div>
+            <div class="container col-md-6 my-2">
+            <p>I am Prashant Adhikari. I am from pakadiya, badhniyar,parsagadhi-03, Parsa, Nepal. I studied Bachelor in science in Information and technology from International school of management and technology and The British College respectively. I am doing programing since five years. and i have also knowledge in networking field. </p>
+            <h3 class="text-center">Educational Background</h3>
+            <div style="overflow-x:auto;">{% include 'eduBack.html' %}</div>
+        </div>
+        </div>
+    </div>
+</div>
+
+<!-- this is container for api table -->
+<div class="container my-4">
+<div class="row">
+<div class="col-md-12">
+{% include 'apiTable.html' %}
+</div>
+</div>
+</div>
+
+
+{% endblock body %}
