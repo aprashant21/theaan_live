@@ -1,0 +1,1 @@
+web: gunicorn theaan.wsgi --log-file -
