@@ -18,7 +18,7 @@ def about(request):
 
 resultJson = floorsheet.FloorSheetClass.floorsheet() #This is flootsheet json
 
-#This is for the JSON response
+#This is for the JSON response updated
 @api_view(['GET'])
 def floorsheet(request):
     return Response(json.loads(resultJson))
