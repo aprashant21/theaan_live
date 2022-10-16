@@ -6,6 +6,9 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
 from django.core.paginator import Paginator
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+import json
 
 # Create your views here.
 def index(request):
@@ -15,11 +18,9 @@ def about(request):
 
 resultJson = floorsheet.FloorSheetClass.floorsheet() #This is flootsheet json
 
+@api_view(['GET'])
 def floorsheet(request):
-    context={
-            "floorsheet":resultJson
-        }
-    return render(request,'floorsheet.html',context)
+    return Response(json.loads(resultJson))
 
 def blogs(request):
     blog= (BLOG.objects.all()).exclude(blogId=2)
